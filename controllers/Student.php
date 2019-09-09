@@ -1,6 +1,16 @@
 <?php
 class Student extends CI_Controller
 {
+    function __construct()
+    {
+
+          parent::__construct();
+          if($this->session->userdata('uid')==null)
+          {
+            redirect('login/index');
+          }
+
+    }
 
 	function index()
 	{
@@ -10,6 +20,7 @@ class Student extends CI_Controller
 
     function stuadd()
     {
+
     	$this->load->model('Stumodel');
     	$r = $this->input->post('txtrno');
     	$s = $this->input->post('txtname');
@@ -57,6 +68,11 @@ class Student extends CI_Controller
     	redirect('student/stushow');
 
 
+    }
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login/index');
     }
 
 }
