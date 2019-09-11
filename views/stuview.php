@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+	<a href="<?php echo site_url(); ?>/student/logout">logout</a>
 <h1>Welcome in Student Information</h1>
 
 <form action="<?php echo site_url(); ?>/Student/stuadd" method="post">
