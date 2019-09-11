@@ -72,6 +72,10 @@ class Student extends CI_Controller
     function logout()
     {
         $this->session->sess_destroy();
+        $this->input->set_cookie('cuid','',0);
+        $this->input->set_cookie('cpwd','',0);
+        delete_cookie('cuid');
+        delete_cookie('cpwd');
         redirect('login/index');
     }
 
